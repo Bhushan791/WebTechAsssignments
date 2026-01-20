@@ -2,7 +2,7 @@
 ## HTML and CSS Fundamentals Using Selectors
 
 ### Student Name
-Ram Udgar Yadav
+Dev Bhushan Bhatta
 
 ### Course
 Web Technologies and Platforms
