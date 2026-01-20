@@ -1,0 +1,58 @@
+/* Universal selector to reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Element selector: style all h1 elements */
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Group selector: common style for h2 and h3 */
+h2, h3 {
+    color: #34495e;
+    margin-bottom: 10px;
+}
+
+/* Element selector: style all paragraph elements */
+p {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+/* Class selector: reusable section box */
+.section-box {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 15px;
+}
+
+/* ID selector: style student name */
+#student-name {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* Descendant selector: style list items inside course list */
+.course-list li {
+    color: #2d3436;
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+
+/* Descendant selector: style list items inside hobby list */
+.hobby-list li {
+    color: #0984e3;
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+
+/* Footer styling using element selector */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+}
