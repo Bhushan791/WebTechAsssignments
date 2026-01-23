@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Students - EduManage</title>
+    
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Fixed Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>EduManage</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <span class="icon">📊</span> Dashboard
+            </a>
+            <a href="manage.html" class="nav-item active">
+                <span class="icon">👥</span> Students
+            </a>
+            <a href="#" class="nav-item">
+                <span class="icon">📚</span> Courses
+            </a>
+            <a href="#" class="nav-item">
+                <span class="icon">📝</span> Attendance
+            </a>
+            <a href="#" class="nav-item">
+                <span class="icon">⚙️</span> Settings
+            </a>
+            <a href="index.html" class="nav-item logout">
+                <span class="icon">🚪</span> Logout
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="topbar">
+            <h1>Student Management</h1>
+            <div class="user-info">
+                <span class="notification-badge">3</span>
+                <span class="user-name">Dev Bhushan Bhatta</span>
+                <div class="user-avatar">DB</div>
+            </div>
+        </header>
+
+        <!-- Management Content -->
+        <div class="manage-container">
+            <!-- Search and Filter Bar -->
+            <div class="toolbar">
+                <div class="search-box">
+                    <input type="text" placeholder="Search students...">
+                </div>
+                <button class="btn btn-primary">+ Add Student</button>
+            </div>
+
+            <!-- Student Table (Desktop) -->
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Course</th>
+                            <th>Grade</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>Ramesh Sharma</td>
+                            <td>ramesh.sharma@email.com</td>
+                            <td>BCA Semester 3</td>
+                            <td>85%</td>
+                            <td><span class="status status-active">Active</span></td>
+                            <td class="actions">
+                                <button class="btn-action btn-edit">Edit</button>
+                                <button class="btn-action btn-delete">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>002</td>
+                            <td>Sita Gurung</td>
+                            <td>sita.gurung@email.com</td>
+                            <td>BBA Semester 2</td>
+                            <td>92%</td>
+                            <td><span class="status status-active">Active</span></td>
+                            <td class="actions">
+                                <button class="btn-action btn-edit">Edit</button>
+                                <button class="btn-action btn-delete">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>003</td>
+                            <td>Binod Thapa</td>
+                            <td>binod.thapa@email.com</td>
+                            <td>BSc CSIT Semester 4</td>
+                            <td>78%</td>
+                            <td><span class="status status-active">Active</span></td>
+                            <td class="actions">
+                                <button class="btn-action btn-edit">Edit</button>
+                                <button class="btn-action btn-delete">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>004</td>
+                            <td>Anjali Rai</td>
+                            <td>anjali.rai@email.com</td>
+                            <td>BCA Semester 1</td>
+                            <td>88%</td>
+                            <td><span class="status status-active">Active</span></td>
+                            <td class="actions">
+                                <button class="btn-action btn-edit">Edit</button>
+                                <button class="btn-action btn-delete">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>005</td>
+                            <td>Krishna Bahadur KC</td>
+                            <td>krishna.kc@email.com</td>
+                            <td>BBA Semester 3</td>
+                            <td>72%</td>
+                            <td><span class="status status-inactive">Inactive</span></td>
+                            <td class="actions">
+                                <button class="btn-action btn-edit">Edit</button>
+                                <button class="btn-action btn-delete">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>006</td>
+                            <td>Pooja Shrestha</td>
+                            <td>pooja.shrestha@email.com</td>
+                            <td>BSc CSIT Semester 2</td>
+                            <td>95%</td>
+                            <td><span class="status status-active">Active</span></td>
+                            <td class="actions">
+                                <button class="btn-action btn-edit">Edit</button>
+                                <button class="btn-action btn-delete">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Student Cards (Mobile View) -->
+            <div class="cards-grid">
+                <div class="student-card">
+                    <h3>Ramesh Sharma</h3>
+                    <p><strong>ID:</strong> 001</p>
+                    <p><strong>Email:</strong> ramesh.sharma@email.com</p>
+                    <p><strong>Course:</strong> BCA Semester 3</p>
+                    <p><strong>Grade:</strong> 85%</p>
+                    <span class="status status-active">Active</span>
+                    <div class="card-actions">
+                        <button class="btn-action btn-edit">Edit</button>
+                        <button class="btn-action btn-delete">Delete</button>
+                    </div>
+                </div>
+                <div class="student-card">
+                    <h3>Sita Gurung</h3>
+                    <p><strong>ID:</strong> 002</p>
+                    <p><strong>Email:</strong> sita.gurung@email.com</p>
+                    <p><strong>Course:</strong> BBA Semester 2</p>
+                    <p><strong>Grade:</strong> 92%</p>
+                    <span class="status status-active">Active</span>
+                    <div class="card-actions">
+                        <button class="btn-action btn-edit">Edit</button>
+                        <button class="btn-action btn-delete">Delete</button>
+                    </div>
+                </div>
+                <div class="student-card">
+                    <h3>Binod Thapa</h3>
+                    <p><strong>ID:</strong> 003</p>
+                    <p><strong>Email:</strong> binod.thapa@email.com</p>
+                    <p><strong>Course:</strong> BSc CSIT Semester 4</p>
+                    <p><strong>Grade:</strong> 78%</p>
+                    <span class="status status-active">Active</span>
+                    <div class="card-actions">
+                        <button class="btn-action btn-edit">Edit</button>
+                        <button class="btn-action btn-delete">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

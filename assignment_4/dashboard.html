@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - EduManage</title>
+    
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Fixed Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>EduManage</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item active">
+                <span class="icon">📊</span> Dashboard
+            </a>
+            <a href="manage.html" class="nav-item">
+                <span class="icon">👥</span> Students
+            </a>
+            <a href="#" class="nav-item">
+                <span class="icon">📚</span> Courses
+            </a>
+            <a href="#" class="nav-item">
+                <span class="icon">📝</span> Attendance
+            </a>
+            <a href="#" class="nav-item">
+                <span class="icon">⚙️</span> Settings
+            </a>
+            <a href="index.html" class="nav-item logout">
+                <span class="icon">🚪</span> Logout
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="topbar">
+            <h1>Dashboard</h1>
+            <div class="user-info">
+                <span class="notification-badge">3</span>
+                <span class="user-name">Dev Bhushan Bhatta</span>
+                <div class="user-avatar">DB</div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-container">
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card stat-blue">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-details">
+                        <h3>Total Students</h3>
+                        <p class="stat-number">1,245</p>
+                        <span class="stat-change positive">+12% from last month</span>
+                    </div>
+                </div>
+
+                <div class="stat-card stat-green">
+                    <div class="stat-icon">📚</div>
+                    <div class="stat-details">
+                        <h3>Active Courses</h3>
+                        <p class="stat-number">42</p>
+                        <span class="stat-change positive">+5 new courses</span>
+                    </div>
+                </div>
+
+                <div class="stat-card stat-orange">
+                    <div class="stat-icon">✓</div>
+                    <div class="stat-details">
+                        <h3>Attendance Rate</h3>
+                        <p class="stat-number">87.5%</p>
+                        <span class="stat-change negative">-2% from last week</span>
+                    </div>
+                </div>
+
+                <div class="stat-card stat-purple">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-details">
+                        <h3>Average Grade</h3>
+                        <p class="stat-number">78.2%</p>
+                        <span class="stat-change positive">+3% improvement</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity Section -->
+            <div class="activity-section">
+                <h2>Recent Activity</h2>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon">📝</div>
+                        <div class="activity-content">
+                            <p class="activity-title">New student enrolled: Ramesh Sharma</p>
+                            <span class="activity-time">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">✓</div>
+                        <div class="activity-content">
+                            <p class="activity-title">Attendance marked for Class 10-A</p>
+                            <span class="activity-time">5 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">📊</div>
+                        <div class="activity-content">
+                            <p class="activity-title">Exam results published for BCA Semester 3</p>
+                            <span class="activity-time">1 day ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
