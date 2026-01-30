@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshCart - Online Grocery Shopping & Delivery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-white">
+    
+    <!-- Top Banner -->
+    <div class="bg-gray-100 border-b border-gray-200">
+        <div class="container mx-auto px-4 py-2">
+            <div class="flex justify-between items-center text-sm text-gray-600">
+                <span>Super Value Deals - Save more with coupons</span>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-globe"></i>
+                    <span>English</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-shopping-cart text-3xl text-green-600"></i>
+                    <h1 class="text-2xl font-bold text-gray-900">FreshCart</h1>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="flex-1 max-w-2xl mx-8">
+                    <div class="relative">
+                        <input type="text" 
+                               placeholder="Search for products" 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <i class="fas fa-search absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                </div>
+
+                <!-- Right Icons -->
+                <div class="flex items-center gap-6">
+                    <button class="flex items-center gap-2 text-gray-600 hover:text-green-600">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="text-sm">Location</span>
+                    </button>
+                    
+                    <button class="relative text-gray-600 hover:text-green-600">
+                        <i class="fas fa-heart text-xl"></i>
+                        <span class="absolute -top-2 -right-2 bg-green-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">5</span>
+                    </button>
+                    
+                    <button class="text-gray-600 hover:text-green-600">
+                        <i class="fas fa-user text-xl"></i>
+                    </button>
+                    
+                    <button onclick="toggleCart()" class="relative text-gray-600 hover:text-green-600">
+                        <i class="fas fa-shopping-bag text-xl"></i>
+                        <span class="absolute -top-2 -right-2 bg-green-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="bg-white border-t border-gray-200">
+            <div class="container mx-auto px-4">
+                <nav class="flex items-center gap-8 py-3">
+                    <button class="btn-primary text-white px-6 py-2 rounded-lg flex items-center gap-2">
+                        <i class="fas fa-bars"></i>
+                        All Departments
+                    </button>
+                    <a href="#" class="nav-link text-gray-700 hover:text-green-600 font-medium">Home</a>
+                    <div class="relative group">
+                        <a href="#" class="nav-link text-gray-700 hover:text-green-600 font-medium flex items-center gap-1">
+                            Dropdown Menu
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                    </div>
+                    <a href="#" class="nav-link text-gray-700 hover:text-green-600 font-medium">Mega menu</a>
+                    <a href="#" class="nav-link text-gray-700 hover:text-green-600 font-medium">Dashboard</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient py-16 overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <div class="w-1/2 space-y-6">
+                    <div class="inline-block bg-yellow-400 text-gray-900 px-4 py-2 rounded-full text-sm font-semibold">
+                        Free Shipping - orders over $100
+                    </div>
+                    
+                    <h2 class="text-6xl font-bold text-gray-900 leading-tight">
+                        Free Shipping on<br>
+                        orders over <span class="text-green-600">$100</span>
+                    </h2>
+                    
+                    <p class="text-gray-600 text-lg max-w-lg">
+                        Free Shipping to First-Time Customers Only, After promotions and discounts are applied.
+                    </p>
+                    
+                    <button class="btn-primary text-white px-8 py-4 rounded-lg text-lg font-semibold flex items-center gap-2">
+                        Shop Now
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                
+                <div class="w-1/2 relative">
+                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800&h=600&fit=crop" 
+                         alt="Fresh Vegetables" 
+                         class="w-full h-auto floating-item rounded-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-900">Featured Categories</h2>
+                <div class="flex gap-2">
+                    <button class="w-10 h-10 rounded-full bg-gray-100 hover:bg-green-600 hover:text-white transition-colors flex items-center justify-center">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="w-10 h-10 rounded-full bg-gray-100 hover:bg-green-600 hover:text-white transition-colors flex items-center justify-center">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-6 gap-6">
+                <div class="category-card bg-gray-50 rounded-xl p-6 text-center border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=200&h=200&fit=crop" 
+                         alt="Instant Food" 
+                         class="w-24 h-24 mx-auto mb-4 object-cover rounded-lg">
+                    <h3 class="font-semibold text-gray-900">Instant Food</h3>
+                </div>
+                
+                <div class="category-card bg-gray-50 rounded-xl p-6 text-center border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=200&h=200&fit=crop" 
+                         alt="Tea & Coffee" 
+                         class="w-24 h-24 mx-auto mb-4 object-cover rounded-lg">
+                    <h3 class="font-semibold text-gray-900">Tea, Coffee & Drinks</h3>
+                </div>
+                
+                <div class="category-card bg-gray-50 rounded-xl p-6 text-center border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=200&h=200&fit=crop" 
+                         alt="Rice" 
+                         class="w-24 h-24 mx-auto mb-4 object-cover rounded-lg">
+                    <h3 class="font-semibold text-gray-900">Atta, Rice & Dal</h3>
+                </div>
+                
+                <div class="category-card bg-gray-50 rounded-xl p-6 text-center border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=200&h=200&fit=crop" 
+                         alt="Baby Care" 
+                         class="w-24 h-24 mx-auto mb-4 object-cover rounded-lg">
+                    <h3 class="font-semibold text-gray-900">Baby Care</h3>
+                </div>
+                
+                <div class="category-card bg-gray-50 rounded-xl p-6 text-center border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=200&h=200&fit=crop" 
+                         alt="Meat" 
+                         class="w-24 h-24 mx-auto mb-4 object-cover rounded-lg">
+                    <h3 class="font-semibold text-gray-900">Chicken, Meat & Fish</h3>
+                </div>
+                
+                <div class="category-card bg-gray-50 rounded-xl p-6 text-center border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?w=200&h=200&fit=crop" 
+                         alt="Cleaning" 
+                         class="w-24 h-24 mx-auto mb-4 object-cover rounded-lg">
+                    <h3 class="font-semibold text-gray-900">Cleaning Essentials</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotional Banners -->
+    <section class="py-8 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 gap-6">
+                <div class="bg-gradient-to-r from-green-50 to-green-100 rounded-2xl p-8 flex items-center justify-between overflow-hidden relative">
+                    <div class="z-10">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-2">Fruits & Vegetables</h3>
+                        <p class="text-gray-600 mb-4">Get Upto <span class="text-green-600 font-bold">30%</span> Off</p>
+                        <button class="bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors">
+                            Shop Now
+                        </button>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=400&h=300&fit=crop" 
+                         alt="Fruits" 
+                         class="w-64 h-48 object-cover rounded-lg">
+                </div>
+                
+                <div class="bg-gradient-to-r from-orange-50 to-orange-100 rounded-2xl p-8 flex items-center justify-between overflow-hidden relative">
+                    <div class="z-10">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-2">Freshly Baked Buns</h3>
+                        <p class="text-gray-600 mb-4">Get Upto <span class="text-orange-600 font-bold">25%</span> Off</p>
+                        <button class="bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors">
+                            Shop Now
+                        </button>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=400&h=300&fit=crop" 
+                         alt="Bread" 
+                         class="w-64 h-48 object-cover rounded-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Products -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">Popular Products</h2>
+            
+            <div class="grid grid-cols-5 gap-6">
+                <!-- Product Card 1 -->
+                <div class="product-card bg-white rounded-xl border border-gray-200 overflow-hidden card-hover relative">
+                    <div class="absolute top-4 left-4 badge-sale text-white px-3 py-1 rounded-full text-xs font-semibold z-10">
+                        Sale
+                    </div>
+                    <div class="p-4 overflow-hidden h-48 flex items-center justify-center bg-gray-50">
+                        <img src="https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=250&h=250&fit=crop" 
+                             alt="Product" 
+                             class="product-image w-full h-full object-contain">
+                    </div>
+                    <div class="p-4">
+                        <p class="text-xs text-gray-500 mb-1">Snack & Munchies</p>
+                        <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">Haldiram's Sev Bhujia</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="star-rating flex gap-1">
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star-half-alt text-xs"></i>
+                            </div>
+                            <span class="text-xs text-gray-500">4.5 (149)</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-3">
+                            <div>
+                                <span class="text-lg font-bold text-gray-900">$18</span>
+                                <span class="text-sm text-gray-400 line-through ml-2">$24</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                            <i class="fas fa-plus"></i>
+                            Add
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card bg-white rounded-xl border border-gray-200 overflow-hidden card-hover relative">
+                    <div class="absolute top-4 left-4 badge-discount text-white px-3 py-1 rounded-full text-xs font-semibold z-10">
+                        14%
+                    </div>
+                    <div class="p-4 overflow-hidden h-48 flex items-center justify-center bg-gray-50">
+                        <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=250&h=250&fit=crop" 
+                             alt="Product" 
+                             class="product-image w-full h-full object-contain">
+                    </div>
+                    <div class="p-4">
+                        <p class="text-xs text-gray-500 mb-1">Bakery & Biscuits</p>
+                        <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">NutriChoice Digestive</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="star-rating flex gap-1">
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star-half-alt text-xs"></i>
+                            </div>
+                            <span class="text-xs text-gray-500">4.5 (25)</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-3">
+                            <div>
+                                <span class="text-lg font-bold text-gray-900">$24</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                            <i class="fas fa-plus"></i>
+                            Add
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card bg-white rounded-xl border border-gray-200 overflow-hidden card-hover">
+                    <div class="p-4 overflow-hidden h-48 flex items-center justify-center bg-gray-50">
+                        <img src="https://images.unsplash.com/photo-1606312619070-d48b4a0a4aa5?w=250&h=250&fit=crop" 
+                             alt="Product" 
+                             class="product-image w-full h-full object-contain">
+                    </div>
+                    <div class="p-4">
+                        <p class="text-xs text-gray-500 mb-1">Bakery & Biscuits</p>
+                        <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">Cadbury 5 Star Chocolate</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="star-rating flex gap-1">
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                            </div>
+                            <span class="text-xs text-gray-500">5 (469)</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-3">
+                            <div>
+                                <span class="text-lg font-bold text-gray-900">$32</span>
+                                <span class="text-sm text-gray-400 line-through ml-2">$35</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                            <i class="fas fa-plus"></i>
+                            Add
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="product-card bg-white rounded-xl border border-gray-200 overflow-hidden card-hover relative">
+                    <div class="absolute top-4 left-4 badge-hot text-white px-3 py-1 rounded-full text-xs font-semibold z-10">
+                        Hot
+                    </div>
+                    <div class="p-4 overflow-hidden h-48 flex items-center justify-center bg-gray-50">
+                        <img src="https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=250&h=250&fit=crop" 
+                             alt="Product" 
+                             class="product-image w-full h-full object-contain">
+                    </div>
+                    <div class="p-4">
+                        <p class="text-xs text-gray-500 mb-1">Snack & Munchies</p>
+                        <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">Onion Flavour Potato</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="star-rating flex gap-1">
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star-half-alt text-xs"></i>
+                                <i class="far fa-star text-xs"></i>
+                            </div>
+                            <span class="text-xs text-gray-500">3.5 (456)</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-3">
+                            <div>
+                                <span class="text-lg font-bold text-gray-900">$3</span>
+                                <span class="text-sm text-gray-400 line-through ml-2">$5</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                            <i class="fas fa-plus"></i>
+                            Add
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 5 -->
+                <div class="product-card bg-white rounded-xl border border-gray-200 overflow-hidden card-hover">
+                    <div class="p-4 overflow-hidden h-48 flex items-center justify-center bg-gray-50">
+                        <img src="https://images.unsplash.com/photo-1585735414904-d303d221ebe4?w=250&h=250&fit=crop" 
+                             alt="Product" 
+                             class="product-image w-full h-full object-contain">
+                    </div>
+                    <div class="p-4">
+                        <p class="text-xs text-gray-500 mb-1">Instant Food</p>
+                        <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">Salted Instant Popcorn</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="star-rating flex gap-1">
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star-half-alt text-xs"></i>
+                            </div>
+                            <span class="text-xs text-gray-500">4.5 (39)</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-3">
+                            <div>
+                                <span class="text-lg font-bold text-gray-900">$13</span>
+                                <span class="text-sm text-gray-400 line-through ml-2">$18</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                            <i class="fas fa-plus"></i>
+                            Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daily Best Sells -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">Daily Best Sells</h2>
+            
+            <div class="grid grid-cols-4 gap-6">
+                <!-- Featured Deal -->
+                <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 text-white relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h3 class="text-3xl font-bold mb-4">100% Organic Coffee Beans.</h3>
+                        <p class="text-gray-300 mb-6">Get the best deal before close.</p>
+                        <button class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors flex items-center gap-2">
+                            Shop Now
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=350&h=350&fit=crop" 
+                         alt="Coffee" 
+                         class="absolute bottom-0 right-0 w-48 h-48 object-cover opacity-50">
+                </div>
+
+                <!-- Product with Countdown -->
+                <div class="bg-white rounded-xl border border-gray-200 overflow-hidden card-hover">
+                    <div class="p-4 overflow-hidden h-48 flex items-center justify-center bg-gray-50">
+                        <img src="https://images.unsplash.com/photo-1587080266227-677cc2a4e76e?w=250&h=250&fit=crop" 
+                             alt="Coffee" 
+                             class="product-image w-full h-full object-contain">
+                    </div>
+                    <div class="p-4">
+                        <p class="text-xs text-gray-500 mb-1">Tea, Coffee & Drinks</p>
+                        <h3 class="font-semibold text-gray-900 mb-2">Roast Ground Coffee</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="star-rating flex gap-1">
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star-half-alt text-xs"></i>
+                            </div>
+                            <span class="text-xs text-gray-500">4.5</span>
+                        </div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-lg font-bold text-gray-900">$13</span>
+                            <span class="text-sm text-gray-400 line-through">$18</span>
+                        </div>
+                        <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2 mb-3">
+                            <i class="fas fa-plus"></i>
+                            Add to Cart
+                        </button>
+                        <div class="grid grid-cols-4 gap-2">
+                            <div class="countdown-box text-center p-2 rounded-lg">
+                                <div class="text-lg font-bold">983</div>
+                                <div class="text-xs text-gray-500">Days</div>
+                            </div>
+                            <div class="countdown-box text-center p-2 rounded-lg">
+                                <div class="text-lg font-bold">12</div>
+                                <div class="text-xs text-gray-500">Hours</div>
+                            </div>
+                            <div class="countdown-box text-center p-2 rounded-lg">
+                                <div class="text-lg font-bold">5</div>
+                                <div class="text-xs text-gray-500">Mins</div>
+                            </div>
+                            <div class="countdown-box text-center p-2 rounded-lg">
+                                <div class="text-lg font-bold">18</div>
+                                <div class="text-xs text-gray-500">Sec</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl border border-gray-200 overflow-hidden card-hover">
+                    <div class="p-4 overflow-hidden h-48 flex items-center justify-center bg-gray-50">
+                        <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=250&h=250&fit=crop" 
+                             alt="Tomatoes" 
+                             class="product-image w-full h-full object-contain">
+                    </div>
+                    <div class="p-4">
+                        <p class="text-xs text-gray-500 mb-1">Fruits & Vegetables</p>
+                        <h3 class="font-semibold text-gray-900 mb-2">Crushed Tomatoes</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="star-rating flex gap-1">
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star-half-alt text-xs"></i>
+                            </div>
+                            <span class="text-xs text-gray-500">4.5</span>
+                        </div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-lg font-bold text-gray-900">$13</span>
+                            <span class="text-sm text-gray-400 line-through">$18</span>
+                        </div>
+                        <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2 mb-3">
+                            <i class="fas fa-plus"></i>
+                            Add to Cart
+                        </button>
+                        <div class="grid grid-cols-4 gap-2">
+                            <div class="countdown-box text-center p-2 rounded-lg">
+                                <div class="text-lg font-bold">1043</div>
+                                <div class="text-xs text-gray-500">Days</div>
+                            </div>
+                            <div class="countdown-box text-center p-2 rounded-lg">
+                                <div class="text-lg font-bold">12</div>
+                                <div class="text-xs text-gray-500">Hours</div>
+                            </div>
+                            <div class="countdown-box text-center p-2 rounded-lg">
+                                <div class="text-lg font-bold">5</div>
+                                <div class="text-xs text-gray-500">Mins</div>
+                            </div>
+                            <div class="countdown-box text-center p-2 rounded-lg">
+                                <div class="text-lg font-bold">18</div>
+                                <div class="text-xs text-gray-500">Sec</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl border border-gray-200 overflow-hidden card-hover">
+                    <div class="p-4 overflow-hidden h-48 flex items-center justify-center bg-gray-50">
+                        <img src="https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1?w=250&h=250&fit=crop" 
+                             alt="Pineapple" 
+                             class="product-image w-full h-full object-contain">
+                    </div>
+                    <div class="p-4">
+                        <p class="text-xs text-gray-500 mb-1">Fruits & Vegetables</p>
+                        <h3 class="font-semibold text-gray-900 mb-2">Golden Pineapple</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="star-rating flex gap-1">
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star-half-alt text-xs"></i>
+                            </div>
+                            <span class="text-xs text-gray-500">4.5</span>
+                        </div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-lg font-bold text-gray-900">$13</span>
+                            <span class="text-sm text-gray-400 line-through">$18</span>
+                        </div>
+                        <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2 mb-3">
+                            <i class="fas fa-plus"></i>
+                            Add to Cart
+                        </button>
+                        <div class="grid grid-cols-4 gap-2">
+                            <div class="countdown-box text-center p-2 rounded-lg">
+                                <div class="text-lg font-bold">1015</div>
+                                <div class="text-xs text-gray-500">Days</div>
+                            </div>
+                            <div class="countdown-box text-center p-2 rounded-lg">
+                                <div class="text-lg font-bold">12</div>
+                                <div class="text-xs text-gray-500">Hours</div>
+                            </div>
+                            <div class="countdown-box text-center p-2 rounded-lg">
+                                <div class="text-lg font-bold">5</div>
+                                <div class="text-xs text-gray-500">Mins</div>
+                            </div>
+                            <div class="countdown-box text-center p-2 rounded-lg">
+                                <div class="text-lg font-bold">18</div>
+                                <div class="text-xs text-gray-500">Sec</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-clock text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">10 minute grocery now</h3>
+                    <p class="text-sm text-gray-600">Get your order delivered to your doorstep at the earliest from FreshCart pickup stores near you.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-gift text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">Best Prices & Offers</h3>
+                    <p class="text-sm text-gray-600">Cheaper prices than your local supermarket, great cashback offers to top it off. Get best pricess & offers.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-box text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">Wide Assortment</h3>
+                    <p class="text-sm text-gray-600">Choose from 5000+ products across food, personal care, household, bakery, veg and non-veg & other categories.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-redo text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">Easy Returns</h3>
+                    <p class="text-sm text-gray-600">Not satisfied with a product? Return it at the doorstep & get a refund within hours. No questions asked <span class="text-green-600">policy</span>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 border-t border-gray-200">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-5 gap-8 mb-8">
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Categories</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-green-600">Vegetables & Fruits</a></li>
+                        <li><a href="#" class="hover:text-green-600">Breakfast & instant food</a></li>
+                        <li><a href="#" class="hover:text-green-600">Bakery & Biscuits</a></li>
+                        <li><a href="#" class="hover:text-green-600">Atta, rice & dal</a></li>
+                        <li><a href="#" class="hover:text-green-600">Sauces & spreads</a></li>
+                        <li><a href="#" class="hover:text-green-600">Organic & gourmet</a></li>
+                        <li><a href="#" class="hover:text-green-600">Baby care</a></li>
+                        <li><a href="#" class="hover:text-green-600">Cleaning essentials</a></li>
+                        <li><a href="#" class="hover:text-green-600">Personal care</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Get to know us</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-green-600">Company</a></li>
+                        <li><a href="#" class="hover:text-green-600">About</a></li>
+                        <li><a href="#" class="hover:text-green-600">Blog</a></li>
+                        <li><a href="#" class="hover:text-green-600">Help Center</a></li>
+                        <li><a href="#" class="hover:text-green-600">Our Value</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">For Consumers</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-green-600">Payments</a></li>
+                        <li><a href="#" class="hover:text-green-600">Shipping</a></li>
+                        <li><a href="#" class="hover:text-green-600">Product Returns</a></li>
+                        <li><a href="#" class="hover:text-green-600">FAQ</a></li>
+                        <li><a href="#" class="hover:text-green-600">Shop Checkout</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Become a Shopper</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-green-600">Shopper Opportunities</a></li>
+                        <li><a href="#" class="hover:text-green-600">Become a Shopper</a></li>
+                        <li><a href="#" class="hover:text-green-600">Earnings</a></li>
+                        <li><a href="#" class="hover:text-green-600">Ideas & Guides</a></li>
+                        <li><a href="#" class="hover:text-green-600">New Retailers</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Freshcart programs</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-green-600">Freshcart programs</a></li>
+                        <li><a href="#" class="hover:text-green-600">Gift Cards</a></li>
+                        <li><a href="#" class="hover:text-green-600">Promos & Coupons</a></li>
+                        <li><a href="#" class="hover:text-green-600">Freshcart Ads</a></li>
+                        <li><a href="#" class="hover:text-green-600">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-200 pt-8">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-4">
+                        <span class="text-sm text-gray-600">Payment Partners</span>
+                        <i class="fab fa-amazon-pay text-2xl text-gray-400"></i>
+                        <i class="fab fa-cc-amex text-2xl text-gray-400"></i>
+                        <i class="fab fa-cc-mastercard text-2xl text-gray-400"></i>
+                        <i class="fab fa-cc-paypal text-2xl text-gray-400"></i>
+                        <i class="fab fa-cc-visa text-2xl text-gray-400"></i>
+                    </div>
+                    
+                    <div class="flex items-center gap-4">
+                        <span class="text-sm text-gray-600">Get deliveries with FreshCart</span>
+                        <div class="flex gap-2">
+                            <a href="#" class="bg-black text-white px-4 py-2 rounded-lg text-xs flex items-center gap-2 hover:bg-gray-800">
+                                <i class="fab fa-apple"></i>
+                                <div>
+                                    <div class="text-xs">Available on the</div>
+                                    <div class="font-semibold">App Store</div>
+                                </div>
+                            </a>
+                            <a href="#" class="bg-black text-white px-4 py-2 rounded-lg text-xs flex items-center gap-2 hover:bg-gray-800">
+                                <i class="fab fa-google-play"></i>
+                                <div>
+                                    <div class="text-xs">Get it on</div>
+                                    <div class="font-semibold">Google Play</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center text-sm text-gray-600">
+                    <p>© 2026 FreshCart TailwindCSS eCommerce HTML Template. Powered by <span class="text-green-600">Codescandy</span> - Distributed by <span class="text-green-600">ThemeWagon</span>.</p>
+                    <div class="flex justify-center gap-4 mt-4">
+                        <span>Follow us on</span>
+                        <a href="#" class="text-gray-600 hover:text-green-600"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-green-600"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-green-600"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="h-full flex flex-col">
+            <div class="p-6 border-b border-gray-200 flex justify-between items-center">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900">Shop Cart</h3>
+                    <p class="text-sm text-gray-500">Location in 382480</p>
+                </div>
+                <button onclick="toggleCart()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <div class="bg-pink-50 border border-pink-200 p-4 m-6 rounded-lg">
+                <p class="text-pink-800 text-sm font-medium">You've got FREE delivery. Start checkout now!</p>
+            </div>
+
+            <div class="flex-1 overflow-y-auto px-6" id="cartItems">
+                <!-- Cart items will be populated here -->
+                <div class="text-center py-12 text-gray-500">
+                    <i class="fas fa-shopping-cart text-4xl mb-4"></i>
+                    <p>Your cart is empty</p>
+                </div>
+            </div>
+
+            <div class="p-6 border-t border-gray-200 space-y-4">
+                <button class="w-full bg-green-600 text-white py-4 rounded-lg hover:bg-green-700 transition-colors font-semibold">
+                    Continue Shopping
+                </button>
+                <button class="w-full bg-gray-900 text-white py-4 rounded-lg hover:bg-gray-800 transition-colors font-semibold">
+                    Update Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
