@@ -32,6 +32,7 @@ const opportunitySchema = new mongoose.Schema(
         "research",
         "event",
         "announcement",
+        "fellowship"
       ],
     },
 
@@ -46,6 +47,7 @@ const opportunitySchema = new mongoose.Schema(
         "arts",
         "law",
         "all",
+        "software"
       ],
     },
 
@@ -137,13 +139,14 @@ const opportunitySchema = new mongoose.Schema(
 );
 
 // 🔄 Auto-expire after deadline
-opportunitySchema.pre("save", function (next) {
-  if (this.deadline && this.deadline < new Date()) {
+opportunitySchema.pre("save", function () {
+  if (!this.isNew && this.deadline && this.deadline < new Date()) {
     this.isActive = false;
     this.status = "expired";
   }
-
 });
+
+
 
 export const Opportunity = mongoose.model(
   "Opportunity",

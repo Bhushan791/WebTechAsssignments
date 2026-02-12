@@ -138,12 +138,15 @@ export const deleteOpportunity = asyncHandler(async (req, res) => {
    GET ALL OPPORTUNITIES
    (Students + Admin)
 ========================= */
-export const getAllOpportunities = asyncHandler(async (req, res) => {
-  const opportunities = await Opportunity.find({ isActive: true })
+
+
+export const getAllOpportunities= asyncHandler(async (req, res)=>{ 
+  const oppportunities = await Opportunity.find({isActive: true}) ; 
+  return res.status(200).json(oppportunities, { "message" :  "opportunities fetched successfully ! " } )  
     .populate("postedBy", "name email")
     .sort({ createdAt: -1 });
+})
 
-  return res
-    .status(200)
-    .json(new apiResponse(200, opportunities, "Opportunities fetched"));
-});
+
+export const getPreferredUsera = asyncHandler(async(req, res
+))
