@@ -146,7 +146,3 @@ export const getAllOpportunities= asyncHandler(async (req, res)=>{
     .populate("postedBy", "name email")
     .sort({ createdAt: -1 });
 })
-
-
-export const getPreferredUsera = asyncHandler(async(req, res
-))

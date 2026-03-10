@@ -1,110 +1,4 @@
-// import { User } from "../models/user.model.js";
-// import { ApiError } from "../utils/apiError.js";
-// import { apiResponse } from "../utils/apiResponse.js";
-// import { asyncHandler } from "../utils/asyncHandler.js";
-
-// const generateTokens = async (user) => {
-//   const accessToken = user.generateAccessToken();
-//   const refreshToken = user.generateRefreshToken();
-
-//   user.refreshToken = refreshToken;
-//   await user.save({ validateBeforeSave: false });
-
-//   return { accessToken, refreshToken };
-// };
-
-// // STUDENT REGISTER
-// const registerUser = asyncHandler(async (req, res) => {
-//   const { name, email, password, studentId, department, year } = req.body;
-
-//   if (!name || !email || !password || !studentId) {
-//     throw new ApiError(400, "All fields are required");
-//   }
-
-//   const existedUser = await User.findOne({ email });
-//   if (existedUser) {
-//     throw new ApiError(409, "User already exists");
-//   }
-
-//   const user = await User.create({
-//     name,
-//     email,
-//     password,
-//     studentId,
-//     department,
-//     year,
-//     role: "student",
-//   });
-
-//   const { accessToken, refreshToken } = await generateTokens(user);
-
-//   return res.status(201).json(
-//     new apiResponse(201, {
-//       user,
-//       accessToken,
-//       refreshToken,
-//     }, "User registered successfully")
-//   );
-// });
-
-// // LOGIN (Student + Admin)
-// const loginUser = asyncHandler(async (req, res) => {
-//   const { email, password } = req.body;
-
-//   if (!email || !password) {
-//     throw new ApiError(400, "Email and password required");
-//   }
-
-//   const user = await User.findOne({ email });
-//   if (!user) {
-//     throw new ApiError(404, "User not found");
-//   }
-
-//   const isPasswordValid = await user.isPasswordCorrect(password);
-//   if (!isPasswordValid) {
-//     throw new ApiError(401, "Invalid credentials");
-//   }
-
-//   const { accessToken, refreshToken } = await generateTokens(user);
-
-//   const options = {
-//     httpOnly: true,
-//     secure: true,
-//   };
-
-//   return res
-//     .status(200)
-//     .cookie("accessToken", accessToken, options)
-//     .cookie("refreshToken", refreshToken, options)
-//     .json(
-//       new apiResponse(200, {
-//         user,
-//         accessToken,
-//       }, "Login successful")
-//     );
-// });
-
-// // LOGOUT
-// const logoutUser = asyncHandler(async (req, res) => {
-//   await User.findByIdAndUpdate(
-//     req.user._id,
-//     { $unset: { refreshToken: 1 } },
-//     { new: true }
-//   );
-
-//   return res
-//     .status(200)
-//     .clearCookie("accessToken")
-//     .clearCookie("refreshToken")
-//     .json(new apiResponse(200, {}, "Logout successful"));
-// });
-
-// export  { registerUser, loginUser, logoutUser };
-
-
-
-
-
+import { response } from "express";
 import { User } from "../models/user.model.js";
 import { ApiError } from "../utils/apiError.js";
 import { apiResponse } from "../utils/apiResponse.js";
@@ -161,9 +55,8 @@ const registerUser = asyncHandler(async (req, res) => {
 
   console.log('📤 Creating apiResponse...');
   const response = new apiResponse(201, {
-    user,
-    accessToken,
-    refreshToken,
+    user
+  
   }, "User registered successfully");
   
   console.log('✅ apiResponse created:', response);
@@ -247,4 +140,13 @@ const logoutUser = asyncHandler(async (req, res) => {
     .json(response);
 });
 
-export { registerUser, loginUser, logoutUser };
+
+const getAllUsers  = asyncHandler(async(req, res)=> { 
+
+const users = await User.find() ; 
+  return res
+  .status(200) 
+  .json(users) ; 
+})
+
+export { registerUser, loginUser, logoutUser , getAllUsers};

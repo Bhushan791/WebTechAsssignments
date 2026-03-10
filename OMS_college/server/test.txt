@@ -1,4 +1,0 @@
-model for post 
-1)  ttitle of the opportunity 
-2) category(internship jobs scholoorship)
-3) 
